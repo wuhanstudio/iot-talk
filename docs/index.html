@@ -55,11 +55,265 @@
                 </section>
 
                 <section>
+                    <h2>Background</h2>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;"> Is Deep Learning secure for IoT?</p>
+                     <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <p class="" style="font-size: 35px;">Deep Learning on IoT Edge Devices</p>
+                    <img src="images/amazon_alibaba.png" style="width: 65%;" alt="">
+                    <!-- <span class="fragment r-fit-text">Intelligent robots possess a more comprehensive perception of environments.</span> -->
+                    <div class="fragment r-vstack">
+                        <img src="images/autonomous.png" style="width: 65%;" alt="">
+                        <span class="" style="font-size: 22px;">Autonomous Driving: The IoT in Automotive </span>
+                    </div>
+                    <aside class="notes">
+                        But here's the problem ...
+                    </aside>
+                </section>
+
+                <section>
+                    <!-- <p class="r-fit-text">Deep neural networks are vulnerable to adversarial attacks in various tasks.</p> -->
+                    <img src="images/fgsm.png" alt="" />
+                    <p class="" style="font-size: 28px;">Adversarial attacks against image classification</p>
+                        <!-- <p class="fragment r-fit-text">Instead of minimizing the loss function, the adversarial attack maximizes it.</p> -->
+                    <div class="fragment r-vstack">
+                        <img src="images/detection.png" alt="">
+                        <span class="" style="font-size: 28px;">Adversarial attacks against object detection  &nbsp; <a href="https://arxiv.org/abs/1906.11897"><i class="far fa-file-pdf"></i></a></span>
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <p> IoT Devices:  Low-End, Middle-End, and High-End</p>
+                    <img src="images/iot.gif" width="70%" alt="" style="margin-top: 0; margin-bottom: 0;" />
+                    <p style="font-size: 14px;">M. O. Ojo, S. Giordano, G. Procissi and I. N. Seitanidis, "A Review of Low-End, Middle-End, and High-End Iot Devices," in IEEE Access, vol. 6, pp. 70528-70554, 2018, doi: 10.1109/ACCESS.2018.2879615.</p>
+                </section>
+
+                <section>
+                    <p class="r-fit-text mb-5">Deep Learning Models are vulnerable to Adversarial Attacks.</p>
+                    <div class="r-vstack mt-5">
+                        <div class="r-hstack mt-5">
+                            <div>
+                                <a href="https://github.com/wuhanstudio/adversarial-detection">
+                                    <img align="center" width=30% src="images/attack.png" />
+                                </a>
+                                <a href="https://github.com/wuhanstudio/adversarial-camera">
+                                    <img align="center" width=30% src="images/minm.png" />
+                                </a>
+                                <a href="https://github.com/wuhanstudio/adversarial-classification">
+                                    <img align="center" width=20% src="images/deepapi.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-hstack" style="margin-top: 0; font-size: 20px;">
+                        <p style="margin-top: 0; margin-left: 80px; margin-right: 80px;" class="fragment">High-End: Linux</p>
+                        <p style="margin-top: 0; margin-left: 60px; margin-right: 80px;" class="fragment">High-End: RT-Smart</p>
+                        <p style="margin-top: 0; margin-left: 0px;" class="fragment">Middle-End: RT-Thread</p>
+                    </div>
+                    <p class="mt-5" style="font-size: 26px;">IoT Devices consist of <strong>Hight-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+                </section>
+
+                <section>
+                    <h3>Adversarial Detection <a href="https://github.com/wuhanstudio/adversarial-detection"><i class="fab fa-github"></i></a>&nbsp;</h3>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">Attacking Object Detection in Real Time.</p>
+                    <div class="r-vstack">
+                        <img class="" width="40%" src="images/attack.png">
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-video="images/detection_ros.mp4" data-background-video data-background-video-muted data-menu-title="Demo Video">
+                    <aside class="notes">
+                        Here's a quick demo. We have a USB camera and a detection system. We used a raspberry pi version 4 to inject the perturbation. The raspberry pi reads the image from the USB camera, injects the perturbation, and then simulates a virtual camera to the detection system. The detection system has no idea that the image is manipulated.
+                    </aside>
+                </section>
+
+                <section data-background-video="images/detection_pc.mp4" data-background-video data-background-video-muted>
+                    <aside class="notes">
+                        After injecting the perturbation, the detection system detects a large number of objects everywhere. Unbelievable! Right?
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Man-in-the-Middle Attack <a href="https://github.com/wuhanstudio/adversarial-camera"><i class="fab fa-github"></i></a>&nbsp;</h3>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">A hardware attack against Object Detection.</p>
+                    <div class="r-vstack">
+                        <img class="" width="40%" src="images/minm.png">
+                    </div>
+                     <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-video="images/demo.mp4" data-background-video data-background-video-muted data-menu-title="Demo Video">
+                    <aside class="notes">
+                        Here's a quick demo. We have a USB camera and a detection system. We used a raspberry pi version 4 to inject the perturbation. The raspberry pi reads the image from the USB camera, injects the perturbation, and then simulates a virtual camera to the detection system. The detection system has no idea that the image is manipulated.
+                    </aside>
+                </section>
+
+                <section data-background-video="images/minm.mp4" data-background-video data-background-video-muted>
+                    <aside class="notes">
+                        After injecting the perturbation, the detection system detects a large number of objects everywhere. Unbelievable! Right?
+                    </aside>
+                </section>
+
+                <section data-menu-title="Step 1: Generating the Perturbation">
+                    <h5 style="margin-top: 30px; margin-bottom: 10px;">Step 1: Generating the perturbation</h5>
+                    <div class="r-hstack">
+                        <p style="font-size: 25px;">Prior Research 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            Our Method</p>
+                    </div>
+                    <div class="r-hstack">
+                        <video  autoplay muted width="35%">
+                            <source src="images/no_decay.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          <video  autoplay muted width="35%">
+                            <source src="images/with_decay.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="r-hstack">
+                        <p style="font-size: 20px;">No learning rate decay 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            With learning rate decay</p>
+                    </div>
+                    <p style="font-size: 25px; margin-top: 0; margin-bottom: 0;" class=""> Our method generates more bounding boxes, and have less variation.</p>
+                    <img src="images/results.png" class="fragment" width="80%">
+                    
+                    <aside class="notes">
+                        In the first step, we generate a single Universal Adversarial Perturbation to fool all the images from the camera. Our method generates more bounding boxes and has less variation. <br />
+                        <br />
+                        Prior research used the Mean Accuracy Precision to measure adversarial attacks, but it actually measures the accuracy of the model rather than the strength of the attack. Thus we propose three evaluation metrics to measure the strength of the attack, and we achieve a stronger attack after applying the learning rate decay.
+                    </aside>
+                </section>
+
+                <section data-menu-title="Step 2: Applying the Perturbation">
+                    <!-- <p class="" style="font-size: 35px;">Deep Learning: From Data Center to Edge Devices</p> -->
+                    <!-- <img src="images/data_center_edger.png" style="width: 65%; margin-bottom: 0;" alt=""> -->
+                    <!-- <span class="fragment r-fit-text">Intelligent robots possess a more comprehensive perception of environments.</span> -->
+                    <div class="r-vstack">
+                        <h5>Step 2: Applying the perturbation</h5>
+                    </div>
+                    <br />
+                    <img src="images/demo.jpg" width="100%">
+
+                    <aside class="notes">
+                        In the next step, to apply the perturbation, prior research introduced digital attack and physical attack. The digital attack requires access to the operating system, but hacking into the operating system is not trivial. The physical attack can print the perturbation on a poster, but the poster needs to be placed close to the camera. This is challenging for robotic applications in dynamic environments. <br />
+                        <br />
+                        We propose the hardware attack that injects the perturbation on the hardware level. The hardware attack does not assume access to the detection system and can inject perturbation to all input images captured by the camera.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>From Linux to RT-Smart</h2>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">From Monolithic to Microkernel RTOS</p>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-image="images/smart.png">
+                </section>
+
+                <section data-background-image="images/gnu.png">
+                </section>
+
+                <section>
+                    <h2>From RT-Smart to RT-Thread</h2>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">From High-End Devices to Middle-End Devices.</p>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-image="images/rtos.png">
+                </section>
+
+                <section>
+                    <h3>Adversarial Classification <a href="https://github.com/wuhanstudio/adversarial-classification"><i class="fab fa-github"></i></a>&nbsp;</h2>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">Distributed Black-Box Attack against Image Classification.</p>
+                    <div class="r-vstack">
+                        <img class="" width="20%" src="images/deepapi.png">
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-video="images/deepapi.mp4" 
+                data-background-video-loop data-background-video-muted>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Demo: DeepAPI via RT-Thread</h2>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">Access Image Classification Cloud Service on MCU.</p>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section data-background-video="images/bat.mp4" 
+                data-background-video-loop data-background-video-muted>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+                <section>
+                    <p class="r-fit-text mb-5">Deep Learning Models are vulnerable to Adversarial Attacks.</p>
+                    <div class="r-vstack mt-5">
+                        <div class="r-hstack mt-5">
+                            <div>
+                                <a href="https://github.com/wuhanstudio/adversarial-detection">
+                                    <img align="center" width=30% src="images/attack.png" />
+                                </a>
+                                <a href="https://github.com/wuhanstudio/adversarial-camera">
+                                    <img align="center" width=30% src="images/minm.png" />
+                                </a>
+                                <a href="https://github.com/wuhanstudio/adversarial-classification">
+                                    <img align="center" width=20% src="images/deepapi.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-hstack" style="margin-top: 0; font-size: 20px;">
+                        <p style="margin-top: 0; margin-left: 80px; margin-right: 80px;" class="">High-End: Linux</p>
+                        <p style="margin-top: 0; margin-left: 60px; margin-right: 80px;" class="">High-End: RT-Smart</p>
+                        <p style="margin-top: 0; margin-left: 0px;" class="">Middle-End: RT-Thread</p>
+                    </div>
+                    <p class="mt-5" style="font-size: 26px;">IoT Devices consist of <strong>Hight-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+                </section>
+
+                <section>
                     <h2>Thanks</h2>
                     <div class="r-vstack">
-                        <p><a href="https://iot.wuhanstudio.uk/">https://iot.wuhanstudio.uk</a></p>
                     </div>
-                    <img src="images/qrcode.png" width="25%" />
+                    <p style="margin-top: 0; margin-bottom: 0;">RT-Thread Community</p>
+                    <div class="r-hstack" style="margin-bottom: 0;">
+                        <img src="images/facebook.png" width="15%" style="margin-bottom: 0;" />
+                        <img src="images/twitter.png" width="15%" style="margin-bottom: 0;" />
+                        <img src="images/linkedin.png" width="15%" style="margin-bottom: 0;" />
+                        <img src="images/youtube.png" width="15%" style="margin-bottom: 0;" />
+                    </div>
+                    <div class="r-hstack" style="margin-top: 0;">
+                        <p style="margin-top: 0;"><i class="fab fa-facebook" style="color: #4267B2; padding-right: 100px; margin-top: 0;"></i></p>
+                        <p style="margin-top: 0;"><i class="fab fa-twitter" style="color: #1DA1F2; padding-right: 100px; margin-top: 0;"></i></p>
+                        <p style="margin-top: 0;"><i class="fab fa-linkedin" style="color:#0077B5; padding-right: 100px; margin-top: 0;"></i></p>
+                        <p style="margin-top: 0;"><i class="fab fa-youtube" style="color:#FF0000; margin-top: 0;"></i></p>
+                    </div>
+                    <p style="font-size: 22px;"><a href="https://iot.wuhanstudio.uk/">https://iot.wuhanstudio.uk</a></p>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://wuhanstudio.uk">Research Website</a></p>
                 </section>
 
