@@ -51,13 +51,17 @@
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://wuhanstudio.uk">Research Website</a></p>
 
                     <aside class="notes">
+                        Hi, I'm a Ph.D. student at University of Exeter, in the U.K. I will present Deep Learning Security for IoT, or Interter of Things. I will show you how to attack object detection models deployed on Edge Devices, and how to attack image classification models deployed on Cloud Servers. <br />
+                        <br />
+                        The first two projects use Linux, while the third one uses RT-Thread, which is a Real-Time Operating System.
                     </aside>
                 </section>
 
                 <section>
                     <h2>Background</h2>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;"> Is Deep Learning secure for IoT?</p>
-                     <aside class="notes">
+                    <aside class="notes">
+                        Here's the research question. Is Deep Learning secure for IoT? Please be aware, we talk about deep learning security, rather than Cryptography. We attack deep neural networks.
                     </aside>
                 </section>
 
@@ -70,28 +74,35 @@
                         <span class="" style="font-size: 22px;">Autonomous Driving: The IoT in Automotive </span>
                     </div>
                     <aside class="notes">
-                        But here's the problem ...
+                        In recent years, we see more and more deep learning models deployed on Edge Devices, such as Autonomous Driving. <br />
+                        But here's the problem, what if deep learning models are vulnerable to adversarial attacks? (1min)
                     </aside>
                 </section>
 
                 <section>
                     <!-- <p class="r-fit-text">Deep neural networks are vulnerable to adversarial attacks in various tasks.</p> -->
                     <img src="images/fgsm.png" alt="" />
-                    <p class="" style="font-size: 28px;">Adversarial attacks against image classification</p>
+                    <p class="" style="font-size: 28px;">Adversarial attacks against image classification <sup style="font-size: 20px;">[1]</sup></p>
                         <!-- <p class="fragment r-fit-text">Instead of minimizing the loss function, the adversarial attack maximizes it.</p> -->
                     <div class="fragment r-vstack">
                         <img src="images/detection.png" alt="">
                         <span class="" style="font-size: 28px;">Adversarial attacks against object detection  &nbsp; <a href="https://arxiv.org/abs/1906.11897"><i class="far fa-file-pdf"></i></a></span>
                     </div>
+                    <p style="font-size: 20px;">[1] J. Z. Kolter and A. Madry, Adversarial Robustness - Theory and Practice, NeurIPS 2018 tutorial.</p>
                     <aside class="notes">
+                        Say for example, on the left side, we have a pig, and it is recognized as a pig by the image classification model. If we apply a small perturbation to the image, we have another pig on the right side. <br /> 
+                        <br />
+                        The perturbation is unperceptible to human eyes, we cannot really tell the difference. right? But the pig on the right side is now recognized as an airliner. Somehow the pig can fly now. So we can attack image classification models by adding a small perturbation to the input image. <br />
+                        <br />
+                        Similarly, we can attack object detection models. 
                     </aside>
                 </section>
 
-                <section>
+                <!-- <section>
                     <p> IoT Devices:  Low-End, Middle-End, and High-End</p>
                     <img src="images/iot.gif" width="70%" alt="" style="margin-top: 0; margin-bottom: 0;" />
                     <p style="font-size: 14px;">M. O. Ojo, S. Giordano, G. Procissi and I. N. Seitanidis, "A Review of Low-End, Middle-End, and High-End Iot Devices," in IEEE Access, vol. 6, pp. 70528-70554, 2018, doi: 10.1109/ACCESS.2018.2879615.</p>
-                </section>
+                </section> -->
 
                 <section>
                     <p class="r-fit-text mb-5">Deep Learning Models are vulnerable to Adversarial Attacks.</p>
@@ -111,11 +122,21 @@
                         </div>
                     </div>
                     <div class="r-hstack" style="margin-top: 0; font-size: 20px;">
-                        <p style="margin-top: 0; margin-left: 80px; margin-right: 80px;" class="fragment">High-End: Linux</p>
-                        <p style="margin-top: 0; margin-left: 60px; margin-right: 80px;" class="fragment">High-End: RT-Smart</p>
-                        <p style="margin-top: 0; margin-left: 0px;" class="fragment">Middle-End: RT-Thread</p>
+                        <p style="margin-top: 0; margin-left: 80px; margin-right: 50px;" class="fragment">1. High-End: Linux</p>
+                        <p style="margin-top: 0; margin-left: 60px; margin-right: 30px;" class="fragment">2. High-End: RT-Thread Smart</p>
+                        <p style="margin-top: 0; margin-left: 0px;" class="fragment">3. Middle-End: RT-Thread</p>
                     </div>
-                    <p class="mt-5" style="font-size: 26px;">IoT Devices consist of <strong>Hight-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+                    <p class="mt-5 fragment" data-fragment-index="1" style="font-size: 26px;">IoT Devices consist of <strong>High-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+
+                    <aside class="notes">
+                        Now we know that deep learning models are vulnerable to adversarial attacks. What does this mean for IoT? Can we attack deep learning models deployed on edge devices? Well, IoT devices consist of High-End, Middle-End, and Low-End Devices. <br />
+                        <br />
+                        High-End Devices such as raspberry pi, can run Linux, and we can deply deep learning models on them. We can also run the smart version of RT-Thread on High-End devices. While for middle-end devices, such as 32-bit microcontrollers, we use the standard version of RT-Thread. <br />
+                        <br />
+                        We will not talk about Low-End devices today, such as Arduino, 8-bit microcontrollers, because they do not have enough memory to run an operating system, and I already introduced how to program low-end 8-bit microcontrollers in my previous talk, right? <br />
+                        <br />
+                        So, we focus on high-end and middle-end devices today. I will introduce how we attack deep learning models deployed on both high-end and middle-end devices in real time. (3min)
+                    </aside>
                 </section>
 
                 <section>
@@ -125,18 +146,27 @@
                         <img class="" width="40%" src="images/attack.png">
                     </div>
                     <aside class="notes">
+                        Let's move on to the first project, Adversarial Detection, attacking object detection in real time.  We tested our attacks in ROS Gazebo Simulator. Here's a turtlebot in a simulated environment. The turtlebot detects the traffic sign using an object detection model, but we can fool the object detection model to detect traffic signs in the air. Let's see a real-time demo. <br />
                     </aside>
                 </section>
 
                 <section data-background-video="images/detection_ros.mp4" data-background-video data-background-video-muted data-menu-title="Demo Video">
                     <aside class="notes">
-                        Here's a quick demo. We have a USB camera and a detection system. We used a raspberry pi version 4 to inject the perturbation. The raspberry pi reads the image from the USB camera, injects the perturbation, and then simulates a virtual camera to the detection system. The detection system has no idea that the image is manipulated.
+                        On the righ top corner, we have a turtlebot ...  <br />
+                        <br />
+                        This is our attack in ROS.
                     </aside>
                 </section>
 
                 <section data-background-video="images/detection_pc.mp4" data-background-video data-background-video-muted>
                     <aside class="notes">
-                        After injecting the perturbation, the detection system detects a large number of objects everywhere. Unbelievable! Right?
+                        You can also test our attacks using a USB camera.   <br />
+                        <br />
+                        ... <br />
+                        <br />
+                        In this demo, we only use CPU, so the attack is a little bit slower. <br />
+                        <br />
+                        This is our first project. We can also attack the object detection model using a raspberry pi. (5min 30s) <br />
                     </aside>
                 </section>
 
@@ -147,18 +177,22 @@
                         <img class="" width="40%" src="images/minm.png">
                     </div>
                      <aside class="notes">
+                        Let's move on to the second project. Man-in-the-Middle Attack, a hardware attack against object detection. As its name suggests, we apply the perturbation in the middle, between the USB camera and the detection system. We use a raspberry pi to inject the perturbation.
                     </aside>
                 </section>
 
                 <section data-background-video="images/demo.mp4" data-background-video data-background-video-muted data-menu-title="Demo Video">
                     <aside class="notes">
-                        Here's a quick demo. We have a USB camera and a detection system. We used a raspberry pi version 4 to inject the perturbation. The raspberry pi reads the image from the USB camera, injects the perturbation, and then simulates a virtual camera to the detection system. The detection system has no idea that the image is manipulated.
+                        Here's a quick demo. We have a USB camera and a detection system. We used a raspberry pi version 4 in the middle to inject the perturbation. The raspberry pi reads the image from the USB camera, injects the perturbation, and then simulates a virtual camera to the detection system. The detection system has no idea that the image is manipulated.
                     </aside>
                 </section>
 
                 <section data-background-video="images/minm.mp4" data-background-video data-background-video-muted>
                     <aside class="notes">
-                        After injecting the perturbation, the detection system detects a large number of objects everywhere. Unbelievable! Right?
+                        This is the original input image.
+                        After injecting the perturbation, the detection system detects a large number of objects everywhere. Unbelievable! Right? (7min)
+
+                        The attack consists of two steps. Step 1: Generating the perturbation. Step 2: Applying the perturbation.
                     </aside>
                 </section>
 
@@ -198,7 +232,7 @@
                     <aside class="notes">
                         In the first step, we generate a single Universal Adversarial Perturbation to fool all the images from the camera. Our method generates more bounding boxes and has less variation. <br />
                         <br />
-                        Prior research used the Mean Accuracy Precision to measure adversarial attacks, but it actually measures the accuracy of the model rather than the strength of the attack. Thus we propose three evaluation metrics to measure the strength of the attack, and we achieve a stronger attack after applying the learning rate decay.
+                        Prior research used the Mean Accuracy Precision to measure adversarial attacks, but it actually measures the accuracy of the model rather than the strength of the attack. Thus we propose three evaluation metrics to measure the strength of the attack, and we achieve a much stronger attack after applying the learning rate decay.
                     </aside>
                 </section>
 
@@ -213,48 +247,65 @@
                     <img src="images/demo.jpg" width="100%">
 
                     <aside class="notes">
-                        In the next step, to apply the perturbation, prior research introduced digital attack and physical attack. The digital attack requires access to the operating system, but hacking into the operating system is not trivial. The physical attack can print the perturbation on a poster, but the poster needs to be placed close to the camera. This is challenging for robotic applications in dynamic environments. <br />
+                        In the next step, as you have already seen, we used a raspberry pi version 4 to apply the perturbation. <br />
                         <br />
-                        We propose the hardware attack that injects the perturbation on the hardware level. The hardware attack does not assume access to the detection system and can inject perturbation to all input images captured by the camera.
+                        But here's a problem using the raspberry pi. We can only apply the perturbaion after the system boots up, unfortunately, it takes roughly half a minute to boot the operating system. This is too slow for the attack, isn't it. So, we think, can we find an real-time operating system that boots up in miliseconds and is compatible with existing linux applications? 
+                        (8min 30s)
                     </aside>
                 </section>
 
                 <section>
-                    <h2>From Linux to RT-Smart</h2>
+                    <h2>From Linux to RT-Thread Smart</h2>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">From Monolithic to Microkernel RTOS</p>
                     <aside class="notes">
+                        And we find RT-Thread Smart, which is a real-time microkernel operating system. 
                     </aside>
                 </section>
 
                 <section data-background-image="images/smart.png">
+                    <aside class="notes">
+                        It is smaller, faster, and safer. The kernel size is less than 500KB, and it can boot up in less than 500 milliseconds.
+                    </aside>
                 </section>
 
                 <section data-background-image="images/gnu.png">
+                    <aside class="notes">
+                        More importantly, we can take advantage of existing linux applications to accelerate our development. Using RT-Thread Smart, we can accelerate our attacks. We are still working on it, we will release a demo of our attack using RT-Thread Smart in the future. (9min)
+                    </aside>
                 </section>
 
                 <section>
                     <h2>From RT-Smart to RT-Thread</h2>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">From High-End Devices to Middle-End Devices.</p>
                     <aside class="notes">
+                        Now, let's move from High-End Devices to Middle-End Devices that run the standard version of RT-Thread.
                     </aside>
                 </section>
 
                 <section data-background-image="images/rtos.png">
+                    <aside class="notes">
+                        In the previous talk, I introduced why we need a real-time operating system. We can use existing components provided by the operating system to accelerate our development. For example, using RT-Thread, we don't have to write a file system, or a network stack, which makes it much easier to develop an IoT application. <br />
+                        <br />
+                        When it comes to deep learning security on middle-end devices. We cannot really deploly deep learning models on these devices because we do not have enough memory. Under this scenario, we use deep learning cloud services.
+                    </aside>
                 </section>
 
                 <section>
                     <h3>Adversarial Classification <a href="https://github.com/wuhanstudio/adversarial-classification"><i class="fab fa-github"></i></a>&nbsp;</h2>
-                    <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">Distributed Black-Box Attack against Image Classification.</p>
+                    <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">Attacking Image Classification Cloud Services.</p>
                     <div class="r-vstack">
                         <img class="" width="20%" src="images/deepapi.png">
                     </div>
                     <aside class="notes">
+                        We can send images to a classification cloud service, and get the classification results using APIs. Well, unfortunately, image classification cloud services are vulnerable to adversarial attacks as well. (10min) <br />
                     </aside>
                 </section>
 
-                <section data-background-video="images/deepapi.mp4" 
-                data-background-video-loop data-background-video-muted>
+                <section data-background-video="images/deepapi.mp4" data-background-video-muted>
                     <aside class="notes">
+                        Say for example, here we have an image classification cloud service, where we can upload images to the cloud server, and receive the classification results. Now, let's upload an image.<br />
+                        <br />
+                        Besides uploading images from the website, we can also use the API to do image classification on microcontrollers. <br />
                     </aside>
                 </section>
 
@@ -262,12 +313,13 @@
                     <h2>Demo: DeepAPI via RT-Thread</h2>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 30px;">Access Image Classification Cloud Service on MCU.</p>
                     <aside class="notes">
+                        I'll show you how to access image classification cloud services from microcontrollers using RT-Thread. (11min 30s)<br />
                     </aside>
                 </section>
 
-                <section data-background-video="images/bat.mp4" 
-                data-background-video-loop data-background-video-muted>
+                <section data-background-video="images/bat.mp4" data-background-video-muted>
                     <aside class="notes">
+                        This is the last demo video.
                     </aside>
                 </section>
 
@@ -293,7 +345,11 @@
                         <p style="margin-top: 0; margin-left: 60px; margin-right: 80px;" class="">High-End: RT-Smart</p>
                         <p style="margin-top: 0; margin-left: 0px;" class="">Middle-End: RT-Thread</p>
                     </div>
-                    <p class="mt-5" style="font-size: 26px;">IoT Devices consist of <strong>Hight-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+                    <p class="mt-5" style="font-size: 26px;">IoT Devices consist of <strong>High-End</strong>, <strong>Middle-End</strong>, and <span style="opacity: 40%;"> Low-End Devices.</p>
+
+                    <aside class="notes">
+                        Well, this comes to the end of my presentation. I demonstrated how to attack object detection and image classfication models on both high-end and middle-end devices. We should really think about deep learning security while developing IoT applications. <br />
+                    </aside>
                 </section>
 
                 <section>
@@ -315,6 +371,10 @@
                     </div>
                     <p style="font-size: 22px;"><a href="https://iot.wuhanstudio.uk/">https://iot.wuhanstudio.uk</a></p>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://wuhanstudio.uk">Research Website</a></p>
+
+                    <aside class="notes">
+                        This is the end of my presentation. The slides are available on this website. And you can find more information about RT-Thread by visiting facebook, twitter, linkedin, and youtube. Thank you. (13min)<br />
+                    </aside>
                 </section>
 
             </div>
@@ -385,5 +445,8 @@
                 // showNotes: true,
             });
         </script>
+
+        <!-- <script src="socket.io/socket.io.js"></script> -->
+        <!-- <script src="node_modules/reveal-notes-server/client.js"></script> -->
     </body>
 </html>
